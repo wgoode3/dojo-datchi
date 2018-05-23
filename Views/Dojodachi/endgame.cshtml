@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DojoDachi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>DojoDachi</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>@ViewBag.message</h2>
+                        <div class="row">
+                            <div class="col">
+                                <label for="happy">Happiness:</label>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" style="width: @ViewBag.happiness%" id="happy"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="full">Fullness:</label>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger progress-bar-striped" style="width: @ViewBag.fullness%" id="full"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="energy">Energy:</label>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success progress-bar-striped" style="width: @ViewBag.energy%" id="energy"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="meals">Meals:</label>
+                                <div id="meals">
+                                    @{
+                                        if(ViewBag.meals < 6){
+                                            for(int i=0; i<ViewBag.meals; i++)
+                                            {
+                                                <span>🍔</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span>🍔 X @ViewBag.meals</span>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="@ViewBag.img" alt="momiji">
+                    </div> 
+                    <div class="card-footer text-center">
+                        <a href="/reset" class="btn btn-primary btn-lg btn-block">Play Again?</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+           
+    </div>
+
+</body>
+</html>
